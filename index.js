@@ -8,7 +8,6 @@ var path         = require('path');
 var PLUGIN_NAME  = 'gulp-rev-collector-cb';
 
 var defaults = {
-    //revSuffix: '-[0-9a-f]{8,10}-?'
     revSuffix: '[?v=0-9a-f]*'
 };
 
