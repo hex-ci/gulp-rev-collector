@@ -1,11 +1,11 @@
 {
-  "name": "gulp-rev-collector",
+  "name": "gulp-rev-collector-cb",
   "version": "1.0.4",
   "description": "Static asset revision data collector from manifests, generated from different streams, and replace their links in html template.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shonny-ua/gulp-rev-collector"
+    "url": "https://github.com/hex-ci/gulp-rev-collector"
   },
   "author": {
     "name": "Oleksandr Ovcharenko",
@@ -43,7 +43,7 @@
     "mocha": "*"
   },
   "bugs": {
-    "url": "https://github.com/shonny-ua/gulp-rev-collector/issues"
+    "url": "https://github.com/hex-ci/gulp-rev-collector/issues"
   },
-  "homepage": "https://github.com/shonny-ua/gulp-rev-collector"
+  "homepage": "https://github.com/hex-ci/gulp-rev-collector"
 }
