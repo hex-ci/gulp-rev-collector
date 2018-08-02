@@ -5,10 +5,11 @@ var PluginError  = gutil.PluginError;
 var through      = require('through2');
 var path         = require('path');
 
-var PLUGIN_NAME  = 'gulp-rev-collector';
+var PLUGIN_NAME  = 'gulp-rev-collector-cb';
 
 var defaults = {
-    revSuffix: '-[0-9a-f]{8,10}-?'
+    //revSuffix: '-[0-9a-f]{8,10}-?'
+    revSuffix: '[?v=0-9a-f]*'
 };
 
 function _getManifestData(file, opts) {
@@ -28,7 +29,7 @@ function _getManifestData(file, opts) {
         if (_.isObject(json)) {
             var isRev = 1;
             Object.keys(json).forEach(function (key) {
-                if ( path.basename(json[key]).replace(new RegExp( opts.revSuffix ), '' ) !==  path.basename(key) ) {
+                if ( path.basename(json[key]).split('?')[0] !== path.basename(key) ) {
                     isRev = 0;
                 }
             });
@@ -81,7 +82,7 @@ function revCollector(opts) {
             var patterns = [ escPathPattern(key) ];
             if (opts.replaceReved) {
                 patterns.push( escPathPattern( (path.dirname(key) === '.' ? '' : closeDirBySep(path.dirname(key)) ) + path.basename(key, path.extname(key)) )
-                            + opts.revSuffix
+                            + escPathPattern( path.extname(key) ) + opts.revSuffix
                             + escPathPattern( path.extname(key) )
                         );
             }
